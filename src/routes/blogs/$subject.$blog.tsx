@@ -1,24 +1,26 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { lazy } from "react";
-import { z } from "zod/mini";
+import * as v from "valibot";
 import registry, { type entries, RegistryKeySchema } from "@/content/registry";
 
 const BlogSlug = lazy(() => import("@/components/Blog/BlogSlug"));
 
+const BlogPathSchema = v.object({
+    subject: v.pipe(v.string(), v.trim(), v.minLength(1)),
+    blog: v.pipe(v.string(), v.trim(), v.minLength(1)),
+});
+
 export const Route = createFileRoute("/blogs/$subject/$blog")({
     component: BlogSlug,
     params: {
-        parse: ({ blog, subject }) => ({
-            subject: z.string().check(z.minLength(1), z.trim()).parse(subject),
-            blog: z.string().check(z.minLength(1), z.trim()).parse(blog),
-        }),
+        parse: (p) => v.parse(BlogPathSchema, p),
     },
     loader: ({ params }) => {
         const path = `/blogs/${params.subject}/${params.blog}`;
-        const result = RegistryKeySchema.safeParse(path);
+        const result = v.safeParse(RegistryKeySchema, path);
 
         if (!result.success) {
-            throw notFound({ data: result.error });
+            throw notFound({ data: result });
             // throw result.error;
         }
 

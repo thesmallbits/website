@@ -1,7 +1,5 @@
 import { CoalescedRegistry, generateElementsFrom, Registry } from "@d1vij/jassm";
-// holy fuck
-// using "import z from "zod"" increases the bundle size by +200KB 💀
-import { z } from "zod/mini";
+import * as v from "valibot";
 
 export const Elements = generateElementsFrom({}, true);
 
@@ -57,6 +55,6 @@ export const registry = new CoalescedRegistry(blogs, chemistry, physics, maths, 
 
 export type RegistryType = typeof registry;
 export const entries = Object.keys(registry.components) as [keyof RegistryType["components"]];
-export const RegistryKeySchema = z.enum(entries);
+export const RegistryKeySchema = v.picklist(entries);
 
 export default registry;

@@ -2,32 +2,21 @@ import { MDXFromComponent } from "@d1vij/jassm";
 import { cn } from "@d1vij/shit-i-always-use";
 import { useLoaderData } from "@tanstack/react-router";
 import { use, useMemo } from "react";
-import { z } from "zod/mini";
+import * as v from "valibot";
 import { Elements, type entries, registry } from "@/content/registry";
+import { BlogExportSchema } from "@/schemas/BlogExportSchema";
 import { stylemap } from "@/styles/mdx.stylesmap";
 import styles from "./blogslug.module.css";
 
-const DateStringSchema = z.string().check(z.regex(/^\d{2}-\d{2}-\d{4}$/));
-
-const MetaSchema = z.object({
-    author: z.string(),
-    created_at: DateStringSchema,
-    modified_at: DateStringSchema,
-    tags: z.array(z.string()),
-});
-
-const ExportSchema = z.object({
-    meta: MetaSchema,
-});
 export default function BlogSlug() {
     const { path, Component } = useLoaderData({ from: "/blogs/$subject/$blog" });
     const { meta } = useMemo(() => {
         const exports = use(registry.getExport(path as (typeof entries)[number]));
-        const results = ExportSchema.safeParse(exports);
+        const results = v.safeParse(BlogExportSchema, exports);
         if (!results.success) {
-            throw results.error;
+            throw results;
         }
-        return results.data;
+        return results.output;
     }, [path]);
 
     return (

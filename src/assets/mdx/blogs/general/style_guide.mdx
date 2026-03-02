@@ -160,5 +160,28 @@ console.log(valueFromMDX);
 2. Using the `registry.getExport()` method if the file is registered in in the registry (see [working with registry](#working-with-registry))
 
 
+```ts
+import {registry} from "@/content/registry";
+const exports = 
+```
+
 ## Working with registry
 
+
+
+## Blog Metadata
+
+Each blog **must** export a metadata object. The schema for which is present at `/src/schemas/BlogExportSchema.ts`
+
+Example 
+
+```ts
+export const meta = {
+  author: "Divij Verma",
+  created_at: "26-02-2026",
+  modified_at: "27-02-2026",
+  tags: ["tutorial", "style guide", "mdx"],
+};
+```
+
+If the exported meta is not upto the schema, runtime error will be raised
