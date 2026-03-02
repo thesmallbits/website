@@ -2,18 +2,18 @@ import { cn } from "@d1vij/shit-i-always-use";
 import styles from "./hero.module.css";
 export default function Hero() {
     return (
-        <section
-            className={cn(
-                styles.hero,
-                "mt- cool-background-shit -m-3 aspect-auto h-[45dvh] bg-light-secondary md:h-[70dvh]",
-            )}
-        >
+        <section className={cn(styles.hero, "aspect-auto h-[45dvh] md:h-[60dvh]")}>
             <div
                 className={cn(
-                    "mx-auto h-full w-[84%] border-light-border border-x bg-light-secondary md:w-[80%]",
+                    "mx-auto h-full border-light-border bg-lightsecondary",
+                    // "w-[84dvw] md:w-[80dvw]",
                     // "flex flex-col justify-center items-center text-center",
                     "grid grid-rows-[1fr_auto] items-center align-middle",
                 )}
+                style={{
+                    background:
+                        "linear-gradient(180deg, #efebd4, #efebd4, #efebd4, #f0ecd5, #f2edd7, #f4efda, #f8f2dd, #faf4e0, #fcf5e2, #fdf6e3, #fdf6e3, #fdf6e3);",
+                }}
             >
                 <span className="grid grid-rows-[1fr_auto] pt-8 text-center">
                     <h1

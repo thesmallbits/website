@@ -1,7 +1,9 @@
-import { CoalescedRegistry, Registry } from "@d1vij/jassm";
+import { CoalescedRegistry, generateElementsFrom, Registry } from "@d1vij/jassm";
 // holy fuck
 // using "import z from "zod"" increases the bundle size by +200KB 💀
 import { z } from "zod/mini";
+
+export const Elements = generateElementsFrom({}, true);
 
 const modules = import.meta.glob("/src/assets/mdx/**/*.mdx");
 

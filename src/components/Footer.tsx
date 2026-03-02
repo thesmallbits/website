@@ -11,7 +11,7 @@ export default function Footer() {
             >
                 Home
             </Link>
-            <span>
+            <span className="font-monospace">
                 @
                 <a
                     href="https://github.com/thesmallbits"

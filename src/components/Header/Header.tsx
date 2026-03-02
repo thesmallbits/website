@@ -64,7 +64,7 @@ export default function Header() {
         <header
             className={cn(
                 "relative",
-                "primary-border cool-background-shit",
+                "primary-border cool-background-shit shadow shadow-light-secondary",
                 "relative z-30 h-fit w-full border-0 border-t-0 border-b",
                 "grid",
                 root ? "grid-cols-2" : "grid-cols-[auto_1fr_auto]",

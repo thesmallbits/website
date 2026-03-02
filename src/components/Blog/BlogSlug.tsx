@@ -3,7 +3,7 @@ import { cn } from "@d1vij/shit-i-always-use";
 import { useLoaderData } from "@tanstack/react-router";
 import { use, useMemo } from "react";
 import { z } from "zod/mini";
-import { type entries, registry } from "@/content/registry";
+import { Elements, type entries, registry } from "@/content/registry";
 import { stylemap } from "@/styles/mdx.stylesmap";
 import styles from "./blogslug.module.css";
 
@@ -43,8 +43,16 @@ export default function BlogSlug() {
                 </h1>
             </section>
             <div className={cn("p-2 font-serifed")}>
-                <section className={cn(styles.mdxContainer, "w-full p-2 md:w-[80%] lg:pt-10 lg:pl-20")} lang="en">
-                    <MDXFromComponent styles={stylemap} source={Component} fallback={<div>Loading</div>} />
+                <section
+                    className={cn(styles.mdxContainer, "grid w-full grid-cols-1 p-2 md:w-[80%] lg:pt-10 lg:pl-20")}
+                    lang="en"
+                >
+                    <MDXFromComponent
+                        elements={Elements}
+                        styles={stylemap}
+                        source={Component}
+                        fallback={<div>Loading</div>}
+                    />
                 </section>
             </div>
         </div>

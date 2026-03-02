@@ -1,5 +1,9 @@
+import type { StyleClassesMap } from "@d1vij/jassm";
 import styles from "./mdx.module.css";
-export const stylemap = {
+/**
+ * Map up the internal classes to stylesheet classes
+ */
+export const stylemap: StyleClassesMap = {
     header: styles.header,
     header_button: styles.header_button,
     header_1: styles.header_1,
@@ -31,6 +35,6 @@ export const stylemap = {
     table_body: styles.table_body,
     table_row: styles.table_row,
     table_data: styles.table_data,
-};
+} as const;
 
 export default stylemap;

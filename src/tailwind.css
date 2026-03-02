@@ -14,7 +14,7 @@
     --color-light-shade-gray: #cccccc;
     --font-monospace: "JetBrains Mono";
     --font-serifed: "Brawler";
-    --default-font-family: var(--font-monospace);
+    --default-font-family: var(--font-serifed);
 }
 
 @layer components {
@@ -29,7 +29,7 @@
             transparent 0,
             transparent 50%
         );
-        background-size: 31px 31px;
+        background-size: 32px 32px;
         background-color: var(--color-light-secondary);
     }
 }

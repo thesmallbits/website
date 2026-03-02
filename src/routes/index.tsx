@@ -1,6 +1,7 @@
+import { cn } from "@d1vij/shit-i-always-use";
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-// import { lazy } from "react";
+import { lazy } from "react";
 
 export const Route = createFileRoute("/")({
     component: RouteComponent,
@@ -9,63 +10,74 @@ export const Route = createFileRoute("/")({
     }),
 });
 
-// const _Hero = lazy(() => import("@/components/Hero"));
+const Hero = lazy(() => import("@/components/Hero"));
 // const _HomeCards = lazy(() => import("@/components/HomeCards"));
 
 export default function RouteComponent() {
+    /**
+     * bg-linear-to-b from-white to-gray-50 text-black
+     */
     return (
-        <div className="flex min-h-screen flex-col bg-linear-to-b from-white to-gray-50 font-sans text-black">
+        <section
+            className={cn(
+                "cool-background-shit bg-light-primary",
+                "grid min-h-screen grid-cols-1",
+                "w-full md:w-[90dvw",
+                "grid, grid-cols-1 place-items-center px-10",
+                "relative",
+            )}
+        >
             {/* Hero Section */}
-            <main className="flex flex-1 items-center justify-center px-6 pt-28 md:pt-36">
-                <div className="max-w-4xl text-center">
-                    {/* Heading */}
-                    <motion.h1
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.8 }}
-                        className="font-semibold text-5xl leading-[1.05] tracking-tight md:text-7xl"
-                    >
-                        Science <span className="text-gray-400">Beyond</span> Textbooks
-                    </motion.h1>
+            <Hero />
 
-                    {/* Subheading */}
-                    <motion.p
-                        initial={{ opacity: 0, y: 12 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.3, duration: 0.8 }}
-                        className="mx-auto mt-8 max-w-2xl text-gray-500 text-lg leading-relaxed md:text-xl"
-                    >
-                        Smallbits provides its users the perfect learning space for the learners of science and
-                        providing an interactive test environment to analyze, learn and improve.
-                    </motion.p>
+            <div className="max-w-4xl rounded-4xl bg-light-secondary text-center shadow">
+                {/* Heading */}
+                <motion.h1
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.8 }}
+                    className="rounded font-semibold text-5xl leading-[1.05] tracking-tight md:text-7xl"
+                >
+                    Science <span className="text-gray-400">Beyond</span> Textbooks
+                </motion.h1>
 
-                    {/* Buttons */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 12 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.6, duration: 0.8 }}
-                        className="mt-12 flex justify-center gap-6"
-                    >
-                        <button
-                            type="button"
-                            onClick={() => {
-                                const section = document.getElementById("recent");
-                                section?.scrollIntoView({ behavior: "smooth" });
-                            }}
-                            className="rounded-xl bg-black px-7 py-3 text-white transition hover:bg-gray-800"
-                        >
-                            Explore Writing
-                        </button>
+                {/* Subheading */}
+                <motion.p
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3, duration: 0.8 }}
+                    className="mx-auto mt-8 max-w-2xl text-gray-500 text-lg leading-relaxed md:text-xl"
+                >
+                    Smallbits provides its users the perfect learning space for the learners of science and providing an
+                    interactive test environment to analyze, learn and improve.
+                </motion.p>
 
-                        <button
-                            type="button"
-                            className="rounded-xl border border-black px-7 py-3 transition hover:bg-black hover:text-white"
-                        >
-                            Generate from PDF
-                        </button>
-                    </motion.div>
-                </div>
-            </main>
+                {/* Buttons */}
+                <motion.div
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.6, duration: 0.8 }}
+                    className="mt-12 flex justify-center gap-6"
+                >
+                    <button
+                        type="button"
+                        onClick={() => {
+                            const section = document.getElementById("recent");
+                            section?.scrollIntoView({ behavior: "smooth" });
+                        }}
+                        className="rounded-xl bg-black px-7 py-3 text-white transition hover:bg-gray-800"
+                    >
+                        Explore Writing
+                    </button>
+
+                    <button
+                        type="button"
+                        className="rounded-xl border border-black px-7 py-3 transition hover:bg-black hover:text-white"
+                    >
+                        Generate from PDF
+                    </button>
+                </motion.div>
+            </div>
 
             {/* About Section */}
             <section className="border-gray-200 border-t px-6 py-28">
@@ -128,11 +140,6 @@ export default function RouteComponent() {
                     </div>
                 </div>
             </section>
-
-            {/* Footer */}
-            <footer className="border-gray-200 border-t py-10 text-center text-gray-500 text-sm">
-                © {new Date().getFullYear()} thesmallbits
-            </footer>
-        </div>
+        </section>
     );
 }
