@@ -1,10 +1,10 @@
-import{_ as e,v as t}from"./index-BRswX6Fd.js";var n=t(e());const r={author:`Ayush Banerjee`,created_at:`22-02-2026`,modified_at:`02-03-2026`,tags:[`chemistry`,`beckmann arrangement`,`organic`]};function i(e){let t={h1:`h1`,h2:`h2`,h3:`h3`,hr:`hr`,img:`img`,p:`p`,strong:`strong`,...e.components};return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(t.h1,{children:`The Beckmann Rearrangement:`}),`
+import{_ as e,v as t}from"./index-BkyXfX2V.js";var n=t(e());const r={author:`Ayush Banerjee`,created_at:`22-02-2026`,modified_at:`02-03-2026`,tags:[`chemistry`,`beckmann arrangement`,`organic`]};function i(e){let t={h1:`h1`,h2:`h2`,h3:`h3`,hr:`hr`,img:`img`,li:`li`,ol:`ol`,p:`p`,strong:`strong`,...e.components};return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(t.h1,{children:`The Beckmann Rearrangement:`}),`
 `,(0,n.jsx)(t.h2,{children:`Introduction`}),`
 `,(0,n.jsx)(t.p,{children:`The Beckmann rearrangement named after German Ernst Otto Beckmann is a classic acid-mediated transformation converting oxime into amides. The reaction has significant industrial importance such as the production of Nylon-6 or synethesis of paracetamol drug (Hoechst-Celanese).`}),`
 `,(0,n.jsxs)(t.p,{children:[`The reaction provides a key example in the class of `,(0,n.jsx)(t.strong,{children:`rearrangement reaction involving intramolecular migration with stereochemical control`}),`.`]}),`
 `,(0,n.jsx)(t.p,{children:(0,n.jsx)(t.img,{src:`https://upload.wikimedia.org/wikipedia/commons/e/eb/BeckmannRearrangement3.svg`,alt:`Beckmann Rearrangement`})}),`
 `,(0,n.jsx)(t.h2,{children:`Reaction Mechanism`}),`
-`,(0,n.jsx)(`img`,{src:`https://upload.wikimedia.org/wikipedia/commons/8/8c/Mechanism_Beckmann_rearrangement.svg`,alt:`Semmler-Wolff Reaction Mechanism`,width:`700`,height:`350`}),`
+`,(0,n.jsx)(`img`,{src:`https://upload.wikimedia.org/wikipedia/commons/8/8c/Mechanism_Beckmann_rearrangement.svg`,alt:`Semmler-Wolff Reaction Mechanism`,width:`700`}),`
 `,(0,n.jsx)(t.p,{children:`The reaction proceds by protonation of the -OH of oxime via an acid (protic or Lewis). The water moleculue leaves and simultanaouesly the alkyl group
 anti to -H2O+ migrates forming the nitrilium ion which then undergoes solvolysis (although can be attacked by another nucleophile). The product attains an imide-amide tautomerization equilibrium.`}),`
 `,(0,n.jsx)(t.h2,{children:`Competitive Reaction: The Beckmann Fragmentation`}),`
@@ -19,4 +19,8 @@ anti to -H2O+ migrates forming the nitrilium ion which then undergoes solvolysis
 `,(0,n.jsx)(`img`,{src:`https://upload.wikimedia.org/wikipedia/commons/8/8f/Semmler-Wolff_reaction_mechanism.svg`,alt:`Semmler-Wolff Reaction Mechanism`,width:`700`}),`
 `,(0,n.jsx)(t.hr,{}),`
 `,(0,n.jsx)(t.h2,{children:`Exercise`}),`
-`,(0,n.jsx)(t.h3,{children:`References`})]})}function a(e={}){let{wrapper:t}=e.components||{};return t?(0,n.jsx)(t,{...e,children:(0,n.jsx)(i,{...e})}):i(e)}export{a as default,r as meta};
+`,(0,n.jsx)(t.h3,{children:`References`}),`
+`,(0,n.jsxs)(t.ol,{children:[`
+`,(0,n.jsx)(t.li,{children:`Clayden`}),`
+`,(0,n.jsx)(t.li,{children:`Carey and Sundberg`}),`
+`]})]})}function a(e={}){let{wrapper:t}=e.components||{};return t?(0,n.jsx)(t,{...e,children:(0,n.jsx)(i,{...e})}):i(e)}export{a as default,r as meta};
