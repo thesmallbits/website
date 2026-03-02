@@ -1,4 +1,4 @@
-import{b as e,h as t,x as n}from"./index-Buix7sMG.js";import{ComponentFromMdx as r,valueFromMDX as i}from"./export_sample-BvTrQbcv.js";var a=t(),o=n(e(),1);function s(e){let t=(0,a.c)(2),{text:n}=e,r;return t[0]===n?r=t[1]:(r=(0,o.jsxs)(`p`,{children:[`Loaded from sample: `,n]}),t[0]=n,t[1]=r),r}const c={author:`Divij Verma`,created_at:`26-02-2026`,modified_at:`27-02-2026`,tags:[`tutorial`,`style guide`,`mdx`]};function l(e){let t={a:`a`,blockquote:`blockquote`,code:`code`,del:`del`,em:`em`,h1:`h1`,h2:`h2`,img:`img`,li:`li`,ol:`ol`,p:`p`,pre:`pre`,strong:`strong`,ul:`ul`,...e.components};return(0,o.jsxs)(o.Fragment,{children:[(0,o.jsx)(t.h1,{children:`Rules and regulations (and features) while writing mdx`}),`
+import{b as e,h as t,x as n}from"./index-BQfWmCcH.js";import{ComponentFromMdx as r,valueFromMDX as i}from"./export_sample-BMzHH52k.js";var a=t(),o=n(e(),1);function s(e){let t=(0,a.c)(2),{text:n}=e,r;return t[0]===n?r=t[1]:(r=(0,o.jsxs)(`p`,{children:[`Loaded from sample: `,n]}),t[0]=n,t[1]=r),r}const c={author:`Divij Verma`,created_at:`26-02-2026`,modified_at:`27-02-2026`,tags:[`tutorial`,`style guide`,`mdx`]};function l(e){let t={a:`a`,blockquote:`blockquote`,code:`code`,del:`del`,em:`em`,h1:`h1`,h2:`h2`,h3:`h3`,img:`img`,li:`li`,ol:`ol`,p:`p`,pre:`pre`,strong:`strong`,ul:`ul`,...e.components};return(0,o.jsxs)(o.Fragment,{children:[(0,o.jsx)(t.h1,{children:`Rules and regulations (and features) while writing mdx`}),`
 `,(0,o.jsxs)(t.blockquote,{children:[`
 `,(0,o.jsx)(t.p,{children:`MDX has (almost) all features of normal markdown`}),`
 `]}),`
@@ -38,9 +38,9 @@ import{b as e,h as t,x as n}from"./index-Buix7sMG.js";import{ComponentFromMdx as
 `,(0,o.jsxs)(t.ol,{children:[`
 `,(0,o.jsx)(t.li,{children:`Direct imports`}),`
 `]}),`
-`,(0,o.jsx)(t.pre,{children:(0,o.jsx)(t.code,{className:`language-tsx`,children:`import MyComponent from "@/components/MyComponent"
+`,(0,o.jsx)(t.pre,{children:(0,o.jsx)(t.code,{className:`language-tsx`,children:`import MyComponent from "@/components/MyComponent";
 
-<MyComponent/>
+<MyComponent />;
 `})}),`
 `,(0,o.jsx)(t.p,{children:`Example`}),`
 `,(0,o.jsx)(t.pre,{children:(0,o.jsx)(t.code,{className:`language-tsx`,children:`import Sample from "@/components/Sample"
@@ -56,12 +56,15 @@ import{b as e,h as t,x as n}from"./index-Buix7sMG.js";import{ComponentFromMdx as
 `]}),`
 `]}),`
 `]}),`
-`,(0,o.jsx)(t.pre,{children:(0,o.jsx)(t.code,{className:`language-tsx`,children:`import {generateElementsFrom} from "@d1vij/jassm";
+`,(0,o.jsx)(t.pre,{children:(0,o.jsx)(t.code,{className:`language-tsx`,children:`import { generateElementsFrom } from "@d1vij/jassm";
 import Sample from "@/components/Sample";
 
-export const Elements = generateElementsFrom({
+export const Elements = generateElementsFrom(
+  {
     Sample, // this will automatically be injecting in all mdx files
-}, true);
+  },
+  true,
+);
 `})}),`
 `,(0,o.jsxs)(t.blockquote,{children:[`
 `,(0,o.jsxs)(t.p,{children:[`the build step `,(0,o.jsx)(t.strong,{children:`WONT FAIL`}),` if the compiler is unable to resolve the component at build time, instead it would fail at runtime`]}),`
@@ -109,8 +112,8 @@ ComponentFromMdx
 `,(0,o.jsx)(t.li,{children:`Direct import from mdx file`}),`
 `]}),`
 `,(0,o.jsx)(t.pre,{children:(0,o.jsx)(t.code,{className:`language-ts`,children:`import {
-valueFromMDX,
-ComponentFromMdx
+  valueFromMDX,
+  ComponentFromMdx,
 } from "@/assets/mdx/blogs/export_sample.mdx";
 
 console.log(valueFromMDX);
@@ -119,9 +122,94 @@ console.log(valueFromMDX);
 `,(0,o.jsxs)(t.li,{children:[`Using the `,(0,o.jsx)(t.code,{children:`registry.getExport()`}),` method if the file is registered in in the registry (see `,(0,o.jsx)(t.a,{href:`#working-with-registry`,children:`working with registry`}),`)`]}),`
 `]}),`
 `,(0,o.jsx)(t.pre,{children:(0,o.jsx)(t.code,{className:`language-ts`,children:`import {registry} from "@/content/registry";
-const exports = 
+const exports =
 `})}),`
 `,(0,o.jsx)(t.h2,{children:`Working with registry`}),`
+`,(0,o.jsx)(t.p,{children:`The "registry" is at its core a mapping of virtual paths to real path of .mdx files`}),`
+`,(0,o.jsxs)(t.h3,{children:[`0. Create a `,(0,o.jsx)(t.code,{children:`module`}),` object from the source directory`]}),`
+`,(0,o.jsxs)(t.p,{children:[`The object returned by `,(0,o.jsx)(t.code,{children:`import.meta.glob`}),` consists of all the files matching a specific pattern.`]}),`
+`,(0,o.jsx)(t.pre,{children:(0,o.jsx)(t.code,{className:`language-ts`,children:`const modules = import.meta.glob("/src/assets/mdx/**/*.mdx");
+`})}),`
+`,(0,o.jsx)(t.h3,{children:`1. Generating a registry`}),`
+`,(0,o.jsx)(t.p,{children:`the Registry class constructor takes in the following things`}),`
+`,(0,o.jsxs)(t.ol,{children:[`
+`,(0,o.jsxs)(t.li,{children:[`The `,(0,o.jsx)(t.code,{children:`module`}),` object returned by import.meta.glob`]}),`
+`,(0,o.jsxs)(t.li,{children:[`The `,(0,o.jsx)(t.code,{children:`source`}),` folder`]}),`
+`,(0,o.jsxs)(t.li,{children:[`The virtual path (`,(0,o.jsx)(t.code,{children:`mountOn`}),`) on which the files will be mounted`]}),`
+`,(0,o.jsxs)(t.li,{children:[`A `,(0,o.jsx)(t.code,{children:`records`}),` object containing map between virtual name and the path of target file relative to the `,(0,o.jsx)(t.code,{children:`source`}),` folder`]}),`
+`]}),`
+`,(0,o.jsx)(t.p,{children:`For example, if the directory structure is like this`}),`
+`,(0,o.jsx)(t.pre,{children:(0,o.jsx)(t.code,{children:`src/
+├── assets
+│\xA0\xA0 └── mdx
+│\xA0\xA0     ├── blogs
+│\xA0\xA0     │\xA0\xA0 ├── chemistry
+│\xA0\xA0     │\xA0\xA0 │\xA0\xA0 └── BeckmanRearrangement.mdx
+│\xA0\xA0     │\xA0\xA0 │\xA0\xA0 └── BeckmanRearrangement.mdx
+│\xA0\xA0     │\xA0\xA0 ├── ├── physical
+│\xA0\xA0     │\xA0\xA0 │\xA0\xA0 │\xA0\xA0└── Electrochemistry.mdx
+│\xA0\xA0     │\xA0\xA0 ├── maths
+│\xA0\xA0     │\xA0\xA0 │\xA0\xA0 └── IndefiniteIntegration.mdx
+│\xA0\xA0     │\xA0\xA0 ├── physics
+│\xA0\xA0     │\xA0\xA0 │\xA0\xA0 └── Electrostatics.mdx
+│\xA0\xA0     │\xA0\xA0 └── info.mdx
+`})}),`
+`,(0,o.jsx)(t.p,{children:`Then the process of creating registries would be`}),`
+`,(0,o.jsx)(t.pre,{children:(0,o.jsx)(t.code,{className:`language-ts`,children:`import { Registry } from "@d1vij/jassm";
+
+// glob all the mdx files inside the /src/assets/mdx folder and its decendents
+const modules = import.meta.glob("/src/assets/mdx/**/*.mdx");
+
+const chemistry = new Registry({
+  modules,
+  source: "/chemistry", // root folder becomes the /src/assets/mdx/chemistry folder
+  mountOn: "/blogs/chemistry", // All records will be prefixed by this path
+  records: {
+    "/beckmann-rearrangement": "/BeckmanRearrangement.mdx",
+    "/electrochemistry": "/physical/Electrochemistry.mdx", // /src/assets/mdx/chemistry/physical/electrochemistry
+  },
+});
+
+// similarly create maths and physics registries
+
+// create a CoalescedRegistry which is a union of all the registries
+const registry = new CoalescedRegistry(chemistry, maths, physics);
+`})}),`
+`,(0,o.jsx)(t.h3,{children:`2. Accessing components and Exports`}),`
+`,(0,o.jsx)(t.p,{children:`Once a registry is defined, it can be exported to any other file or component and its corresponding MDX component and exports can be used via`}),`
+`,(0,o.jsxs)(t.ol,{children:[`
+`,(0,o.jsxs)(t.li,{children:[(0,o.jsx)(t.code,{children:`.getComponent(vpath)`}),` method - Returns the lazy loaded component from the virtual path (virtual path is `,(0,o.jsx)(t.code,{children:`mountOn`}),` + `,(0,o.jsx)(t.code,{children:`/`}),` + `,(0,o.jsx)(t.code,{children:`virtual name`}),`)`]}),`
+`,(0,o.jsxs)(t.li,{children:[(0,o.jsx)(t.code,{children:`.getExport(vpath)`}),` method - Returns the exported module object the virtual path (virtual path is `,(0,o.jsx)(t.code,{children:`mountOn`}),` + `,(0,o.jsx)(t.code,{children:`/`}),` + `,(0,o.jsx)(t.code,{children:`virtual name`}),`)`]}),`
+`]}),`
+`,(0,o.jsx)(t.pre,{children:(0,o.jsx)(t.code,{className:`language-tsx`,children:`// import the component loader
+import { MDXFromComponent } from "@d1vij/jassm";
+// import the Elements
+import { Elements } from "@/elements";
+// import the stylemap
+import { stylemap } from "@/stylemap";
+// import the registry
+import { registry } from "@/registry";
+// use this Component wrapped inside a Suspense to provider better UX
+function Foo() {
+  // using the \`use()\` hook to resolve the import promise
+  const exports = use(registry.getExport("/blogs/chemistry/electrochemistry"));
+  const Component = exports.default;
+  // or else
+  const Component = registry.getComponent("/blogs/chemistry/electrochemistry");
+
+  return (
+    <div>
+      {/* you should validate the exported object at runtime via some validation lib like zod or valibot */}
+      {exports.meta.title}
+      <MDXFromComponent
+        source={Component}
+        elements={Elements}
+        styles={stylemap}
+      />
+    </div>
+  );
+}
+`})}),`
 `,(0,o.jsx)(t.h2,{children:`Blog Metadata`}),`
 `,(0,o.jsxs)(t.p,{children:[`Each blog `,(0,o.jsx)(t.strong,{children:`must`}),` export a metadata object. The schema for which is present at `,(0,o.jsx)(t.code,{children:`/src/schemas/BlogExportSchema.ts`})]}),`
 `,(0,o.jsx)(t.p,{children:`Example`}),`
