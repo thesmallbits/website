@@ -3,21 +3,21 @@ import { cn } from "@d1vij/shit-i-always-use";
 import { useLoaderData } from "@tanstack/react-router";
 import { use, useMemo } from "react";
 import * as v from "valibot";
-import { Elements, type entries, registry } from "@/content/registry";
-import { BlogExportSchema } from "@/schemas/BlogExportSchema";
+import { Elements } from "@/content/registry";
+import { BlogExportSchema } from "@/schemas";
 import { stylemap } from "@/styles/mdx.stylesmap";
 import styles from "./blogslug.module.css";
 
 export default function BlogSlug() {
-    const { path, Component } = useLoaderData({ from: "/blogs/$subject/$blog" });
+    const { Component, exportPromise } = useLoaderData({ from: "/blogs/$subject/$blog" });
     const { meta } = useMemo(() => {
-        const exports = use(registry.getExport(path as (typeof entries)[number]));
+        const exports = use(exportPromise);
         const results = v.safeParse(BlogExportSchema, exports);
         if (!results.success) {
             throw results;
         }
         return results.output;
-    }, [path]);
+    }, [exportPromise]);
 
     return (
         <div className={cn("min-h-full w-dvw md:grid md:grid-cols-[auto_1fr]")}>

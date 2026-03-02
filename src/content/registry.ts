@@ -50,11 +50,16 @@ const blogs = new Registry({
     },
 });
 
-// TODO: find some better approach
 export const registry = new CoalescedRegistry(blogs, chemistry, physics, maths, general);
 
 export type RegistryType = typeof registry;
+/**
+ * Entries of the registry
+ */
 export const entries = Object.keys(registry.components) as [keyof RegistryType["components"]];
+/**
+ * Schema for validating entries of registry
+ */
 export const RegistryKeySchema = v.picklist(entries);
 
 export default registry;

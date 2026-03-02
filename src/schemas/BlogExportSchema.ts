@@ -7,6 +7,7 @@ const MetaSchema = v.object({
     created_at: DateStringSchema,
     modified_at: DateStringSchema,
     tags: v.array(v.string()),
+    summary: v.optional(v.string(), ""),
 });
 
 export const BlogExportSchema = v.object({

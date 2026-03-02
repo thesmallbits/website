@@ -14,11 +14,9 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as RepositoryIndexRouteImport } from './routes/repository/index'
 import { Route as BlogsIndexRouteImport } from './routes/blogs/index'
 import { Route as RepositoryRepositoryRouteImport } from './routes/repository/$repository'
-import { Route as BlogsPhysicsRouteImport } from './routes/blogs/physics'
-import { Route as BlogsMathsRouteImport } from './routes/blogs/maths'
-import { Route as BlogsGeneralRouteImport } from './routes/blogs/general'
-import { Route as BlogsChemistryRouteImport } from './routes/blogs/chemistry'
 import { Route as BlogsSplatRouteImport } from './routes/blogs/$'
+import { Route as BlogsSubjectIndexRouteImport } from './routes/blogs/$subject/index'
+import { Route as BlogsSubjectLayoutRouteImport } from './routes/blogs/$subject/_layout'
 import { Route as BlogsSubjectBlogRouteImport } from './routes/blogs/$subject.$blog'
 
 const AboutRoute = AboutRouteImport.update({
@@ -46,29 +44,19 @@ const RepositoryRepositoryRoute = RepositoryRepositoryRouteImport.update({
   path: '/repository/$repository',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BlogsPhysicsRoute = BlogsPhysicsRouteImport.update({
-  id: '/blogs/physics',
-  path: '/blogs/physics',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BlogsMathsRoute = BlogsMathsRouteImport.update({
-  id: '/blogs/maths',
-  path: '/blogs/maths',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BlogsGeneralRoute = BlogsGeneralRouteImport.update({
-  id: '/blogs/general',
-  path: '/blogs/general',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BlogsChemistryRoute = BlogsChemistryRouteImport.update({
-  id: '/blogs/chemistry',
-  path: '/blogs/chemistry',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const BlogsSplatRoute = BlogsSplatRouteImport.update({
   id: '/blogs/$',
   path: '/blogs/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogsSubjectIndexRoute = BlogsSubjectIndexRouteImport.update({
+  id: '/blogs/$subject/',
+  path: '/blogs/$subject/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogsSubjectLayoutRoute = BlogsSubjectLayoutRouteImport.update({
+  id: '/blogs/$subject/_layout',
+  path: '/blogs/$subject',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogsSubjectBlogRoute = BlogsSubjectBlogRouteImport.update({
@@ -81,41 +69,34 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/blogs/$': typeof BlogsSplatRoute
-  '/blogs/chemistry': typeof BlogsChemistryRoute
-  '/blogs/general': typeof BlogsGeneralRoute
-  '/blogs/maths': typeof BlogsMathsRoute
-  '/blogs/physics': typeof BlogsPhysicsRoute
   '/repository/$repository': typeof RepositoryRepositoryRoute
   '/blogs/': typeof BlogsIndexRoute
   '/repository/': typeof RepositoryIndexRoute
   '/blogs/$subject/$blog': typeof BlogsSubjectBlogRoute
+  '/blogs/$subject': typeof BlogsSubjectLayoutRoute
+  '/blogs/$subject/': typeof BlogsSubjectIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/blogs/$': typeof BlogsSplatRoute
-  '/blogs/chemistry': typeof BlogsChemistryRoute
-  '/blogs/general': typeof BlogsGeneralRoute
-  '/blogs/maths': typeof BlogsMathsRoute
-  '/blogs/physics': typeof BlogsPhysicsRoute
   '/repository/$repository': typeof RepositoryRepositoryRoute
   '/blogs': typeof BlogsIndexRoute
   '/repository': typeof RepositoryIndexRoute
   '/blogs/$subject/$blog': typeof BlogsSubjectBlogRoute
+  '/blogs/$subject': typeof BlogsSubjectIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/blogs/$': typeof BlogsSplatRoute
-  '/blogs/chemistry': typeof BlogsChemistryRoute
-  '/blogs/general': typeof BlogsGeneralRoute
-  '/blogs/maths': typeof BlogsMathsRoute
-  '/blogs/physics': typeof BlogsPhysicsRoute
   '/repository/$repository': typeof RepositoryRepositoryRoute
   '/blogs/': typeof BlogsIndexRoute
   '/repository/': typeof RepositoryIndexRoute
   '/blogs/$subject/$blog': typeof BlogsSubjectBlogRoute
+  '/blogs/$subject/_layout': typeof BlogsSubjectLayoutRoute
+  '/blogs/$subject/': typeof BlogsSubjectIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -123,54 +104,45 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/blogs/$'
-    | '/blogs/chemistry'
-    | '/blogs/general'
-    | '/blogs/maths'
-    | '/blogs/physics'
     | '/repository/$repository'
     | '/blogs/'
     | '/repository/'
     | '/blogs/$subject/$blog'
+    | '/blogs/$subject'
+    | '/blogs/$subject/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/blogs/$'
-    | '/blogs/chemistry'
-    | '/blogs/general'
-    | '/blogs/maths'
-    | '/blogs/physics'
     | '/repository/$repository'
     | '/blogs'
     | '/repository'
     | '/blogs/$subject/$blog'
+    | '/blogs/$subject'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/blogs/$'
-    | '/blogs/chemistry'
-    | '/blogs/general'
-    | '/blogs/maths'
-    | '/blogs/physics'
     | '/repository/$repository'
     | '/blogs/'
     | '/repository/'
     | '/blogs/$subject/$blog'
+    | '/blogs/$subject/_layout'
+    | '/blogs/$subject/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   BlogsSplatRoute: typeof BlogsSplatRoute
-  BlogsChemistryRoute: typeof BlogsChemistryRoute
-  BlogsGeneralRoute: typeof BlogsGeneralRoute
-  BlogsMathsRoute: typeof BlogsMathsRoute
-  BlogsPhysicsRoute: typeof BlogsPhysicsRoute
   RepositoryRepositoryRoute: typeof RepositoryRepositoryRoute
   BlogsIndexRoute: typeof BlogsIndexRoute
   RepositoryIndexRoute: typeof RepositoryIndexRoute
   BlogsSubjectBlogRoute: typeof BlogsSubjectBlogRoute
+  BlogsSubjectLayoutRoute: typeof BlogsSubjectLayoutRoute
+  BlogsSubjectIndexRoute: typeof BlogsSubjectIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -210,39 +182,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RepositoryRepositoryRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/blogs/physics': {
-      id: '/blogs/physics'
-      path: '/blogs/physics'
-      fullPath: '/blogs/physics'
-      preLoaderRoute: typeof BlogsPhysicsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/blogs/maths': {
-      id: '/blogs/maths'
-      path: '/blogs/maths'
-      fullPath: '/blogs/maths'
-      preLoaderRoute: typeof BlogsMathsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/blogs/general': {
-      id: '/blogs/general'
-      path: '/blogs/general'
-      fullPath: '/blogs/general'
-      preLoaderRoute: typeof BlogsGeneralRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/blogs/chemistry': {
-      id: '/blogs/chemistry'
-      path: '/blogs/chemistry'
-      fullPath: '/blogs/chemistry'
-      preLoaderRoute: typeof BlogsChemistryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/blogs/$': {
       id: '/blogs/$'
       path: '/blogs/$'
       fullPath: '/blogs/$'
       preLoaderRoute: typeof BlogsSplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blogs/$subject/': {
+      id: '/blogs/$subject/'
+      path: '/blogs/$subject'
+      fullPath: '/blogs/$subject/'
+      preLoaderRoute: typeof BlogsSubjectIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blogs/$subject/_layout': {
+      id: '/blogs/$subject/_layout'
+      path: '/blogs/$subject'
+      fullPath: '/blogs/$subject'
+      preLoaderRoute: typeof BlogsSubjectLayoutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blogs/$subject/$blog': {
@@ -259,14 +217,12 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   BlogsSplatRoute: BlogsSplatRoute,
-  BlogsChemistryRoute: BlogsChemistryRoute,
-  BlogsGeneralRoute: BlogsGeneralRoute,
-  BlogsMathsRoute: BlogsMathsRoute,
-  BlogsPhysicsRoute: BlogsPhysicsRoute,
   RepositoryRepositoryRoute: RepositoryRepositoryRoute,
   BlogsIndexRoute: BlogsIndexRoute,
   RepositoryIndexRoute: RepositoryIndexRoute,
   BlogsSubjectBlogRoute: BlogsSubjectBlogRoute,
+  BlogsSubjectLayoutRoute: BlogsSubjectLayoutRoute,
+  BlogsSubjectIndexRoute: BlogsSubjectIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

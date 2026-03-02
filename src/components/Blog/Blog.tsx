@@ -1,9 +1,17 @@
-import { entries } from "@/content/registry";
+import { Link } from "@tanstack/react-router";
+import { ValidSubjects } from "@/schemas";
 export default function Blog() {
-    const links = entries.map((l) => <li key={l}></li>);
     return (
-        <div className="p-4">
-            <ol>{links}</ol>
+        <div>
+            <ol>
+                {ValidSubjects.map((s) => (
+                    <li key={s}>
+                        <Link to="/blogs/$subject" params={{ subject: s }}>
+                            {s}
+                        </Link>
+                    </li>
+                ))}
+            </ol>
         </div>
     );
 }
