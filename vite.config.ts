@@ -19,9 +19,14 @@ export default defineConfig(({mode}) => ({
         "NODE_ENV": "'production'"
     },
     build: {
+        minify: "oxc",
+        license: true,
         rolldownOptions: {
-            treeshake: true
-        }
+            treeshake: true,
+            logLevel:"info",
+            optimization: {
+                inlineConst:{mode:"all", "pass":1}
+            }}
     },
     resolve: {
         alias: {
@@ -36,10 +41,14 @@ export default defineConfig(({mode}) => ({
         }),
         visualizer({
             open: false,
-            filename:"dist/stats.html"
+            filename: "dist/stats.html",
+            gzipSize: true,
         }),
-        tailwindcss(),
+        tailwindcss({
+            optimize: {minify: true}
+        }),
         tanstackRouter({
+            verboseFileRoutes: true,
             autoCodeSplitting: true,
         }),
         react({
