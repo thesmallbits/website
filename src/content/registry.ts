@@ -10,7 +10,6 @@ export const physics = new Registry({
     source: "/src/assets/mdx/blogs/physics",
     mountOn: "/blogs/physics",
     records: {
-        "/the-beckman-rearrangement": "/BeckmanRearrangement.mdx",
     },
 });
 
@@ -19,7 +18,6 @@ export const maths = new Registry({
     source: "/src/assets/mdx/blogs/maths",
     mountOn: "/blogs/maths",
     records: {
-        "/the-beckman-rearrangement": "/BeckmanRearrangement.mdx",
     },
 });
 
@@ -28,7 +26,7 @@ export const chemistry = new Registry({
     source: "/src/assets/mdx/blogs/chemistry",
     mountOn: "/blogs/chemistry",
     records: {
-        "/the-beckman-rearrangement": "/BeckmanRearrangement.mdx",
+        "/beckmann-rearrangement": "/BeckmannRearrangement.mdx",
     },
 });
 
