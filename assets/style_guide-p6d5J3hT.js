@@ -1,4 +1,4 @@
-import{b as e,h as t,x as n}from"./index-CsLGWLGP.js";import{ComponentFromMdx as r,valueFromMDX as i}from"./export_sample-DGkkmUWb.js";var a=t(),o=n(e(),1);function s(e){let t=(0,a.c)(2),{text:n}=e,r;return t[0]===n?r=t[1]:(r=(0,o.jsxs)(`p`,{children:[`Loaded from sample: `,n]}),t[0]=n,t[1]=r),r}const c={author:`Divij Verma`,created_at:`26-02-2026`,modified_at:`27-02-2026`,tags:[`tutorial`,`style guide`,`mdx`]};function l(e){let t={a:`a`,blockquote:`blockquote`,code:`code`,del:`del`,em:`em`,h1:`h1`,h2:`h2`,img:`img`,li:`li`,ol:`ol`,p:`p`,pre:`pre`,strong:`strong`,ul:`ul`,...e.components};return(0,o.jsxs)(o.Fragment,{children:[(0,o.jsx)(t.h1,{children:`Rules and regulations (and features) while writing mdx`}),`
+import{b as e,h as t,x as n}from"./index-Buix7sMG.js";import{ComponentFromMdx as r,valueFromMDX as i}from"./export_sample-BvTrQbcv.js";var a=t(),o=n(e(),1);function s(e){let t=(0,a.c)(2),{text:n}=e,r;return t[0]===n?r=t[1]:(r=(0,o.jsxs)(`p`,{children:[`Loaded from sample: `,n]}),t[0]=n,t[1]=r),r}const c={author:`Divij Verma`,created_at:`26-02-2026`,modified_at:`27-02-2026`,tags:[`tutorial`,`style guide`,`mdx`]};function l(e){let t={a:`a`,blockquote:`blockquote`,code:`code`,del:`del`,em:`em`,h1:`h1`,h2:`h2`,img:`img`,li:`li`,ol:`ol`,p:`p`,pre:`pre`,strong:`strong`,ul:`ul`,...e.components};return(0,o.jsxs)(o.Fragment,{children:[(0,o.jsx)(t.h1,{children:`Rules and regulations (and features) while writing mdx`}),`
 `,(0,o.jsxs)(t.blockquote,{children:[`
 `,(0,o.jsx)(t.p,{children:`MDX has (almost) all features of normal markdown`}),`
 `]}),`
@@ -98,7 +98,7 @@ ComponentFromMdx
 <ComponentFromMdx/>
 `})}),`
 `,`
-`,i,`
+`,`this is a variable imported from mdx file`,`
 `,(0,o.jsx)(`br`,{}),`
 `,(0,o.jsx)(r,{}),`
 `,(0,o.jsxs)(t.ol,{start:`2`,children:[`
