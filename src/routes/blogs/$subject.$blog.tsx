@@ -6,24 +6,26 @@ import { ValidSubjectSchema } from "@/schemas";
 
 const BlogSlug = lazy(() => import("@/components/Blog/BlogSlug"));
 
-const BlogPathSchema = v.object({
-    blog: v.pipe(v.string(), v.trim(), v.minLength(1)),
-});
+const BlogPathSchema = v.pipe(v.string(), v.trim(), v.minLength(1));
 
 export const Route = createFileRoute("/blogs/$subject/$blog")({
     component: BlogSlug,
     params: {
         parse({ blog, subject }) {
-            return {
+            console.log('h')
+            const r = {
                 blog: v.parse(BlogPathSchema, blog),
                 subject: v.parse(ValidSubjectSchema, subject),
             };
+            console.log('a')
+            return r;
         },
     },
     loader: ({ params }) => {
         // NOTE: if in future we change the virtual path at
         // registry then this must also be changed
         const path = `/blogs/${params.subject}/${params.blog}`;
+        console.log(path)
         const result = v.safeParse(RegistryKeySchema, path);
         if (!result.success) {
             throw notFound({ data: result });
