@@ -1,4 +1,4 @@
-import{_ as e,g as t}from"./index-CPw6nSSZ.js";var n=e(t());const r={author:`Ayush Banerjee`,created_at:`22-02-2026`,modified_at:`02-03-2026`,tags:[`chemistry`,`beckmann rearrangement`,`organic`]};function i(e){let t={a:`a`,em:`em`,h1:`h1`,h2:`h2`,h3:`h3`,h4:`h4`,hr:`hr`,li:`li`,ol:`ol`,p:`p`,strong:`strong`,...e.components},{Image:r}=t;return r||o(`Image`,!0),(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(t.h1,{children:`The Beckmann Rearrangement:`}),`
+import{_ as e,g as t}from"./index-C6DB9Fpg.js";var n=e(t());const r={author:`Ayush Banerjee`,created_at:`22-02-2026`,modified_at:`02-03-2026`,tags:[`chemistry`,`beckmann rearrangement`,`organic`]};function i(e){let t={a:`a`,em:`em`,h1:`h1`,h2:`h2`,h3:`h3`,h4:`h4`,hr:`hr`,li:`li`,ol:`ol`,p:`p`,strong:`strong`,...e.components},{Image:r}=t;return r||o(`Image`,!0),(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(t.h1,{children:`The Beckmann Rearrangement:`}),`
 `,(0,n.jsx)(t.h2,{children:`Introduction`}),`
 `,(0,n.jsxs)(t.p,{children:[`The Beckmann rearrangement named after German Ernst Otto Beckmann is a classic acid-mediated transformation converting oxime into amides. The reaction has significant industrial importance such as the production of Nylon-6 or synethesis of paracetamol drug `,(0,n.jsx)(t.em,{children:`(Hoechst-Celanese)`}),`.`]}),`
 `,(0,n.jsxs)(t.p,{children:[`The reaction provides a key example in the `,(0,n.jsx)(t.strong,{children:`class of rearrangement reaction involving intramolecular migration with stereochemical control`}),`.`]}),`
@@ -26,7 +26,7 @@ and safely speaking it's always the group anti to -OH which migrates `,(0,n.jsx)
 `,(0,n.jsx)(t.h4,{children:`(a). Beginner`}),`
 `,(0,n.jsx)(r,{src:`/images/beckmann/ex1.png`,alt:`ex1`,widthRem:40}),`
 `,(0,n.jsx)(`br`,{}),`
-`,(0,n.jsx)(`img`,{src:`/images/beckmann/ex4.png`,alt:`ex4`,widthRem:40}),`
+`,(0,n.jsx)(r,{src:`/images/beckmann/ex4.png`,alt:`ex4`,widthRem:40}),`
 `,(0,n.jsx)(t.p,{children:(0,n.jsx)(t.em,{children:`R. F. Brown, N. M. van Gulick, and G. H. Schmid, J. Am. Chem. Soc., 77, 1094
 (1955).`})}),`
 `,(0,n.jsx)(t.p,{children:(0,n.jsx)(t.em,{children:`The opposite regioisomer from migration of the phenyl group was
