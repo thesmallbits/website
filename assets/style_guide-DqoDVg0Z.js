@@ -1,4 +1,4 @@
-import{_ as e,g as t,u as n}from"./index-BymzJ1bD.js";import{ComponentFromMdx as r,valueFromMDX as i}from"./export_sample-OwVyPL6B.js";var a=n(),o=e(t(),1);function s(e){let t=(0,a.c)(2),{text:n}=e,r;return t[0]===n?r=t[1]:(r=(0,o.jsxs)(`p`,{children:[`Loaded from sample: `,n]}),t[0]=n,t[1]=r),r}const c={author:`Divij Verma`,created_at:`26-02-2026`,modified_at:`03-03-2026`,tags:[`tutorial`,`style guide`,`mdx`],summary:`Style guide for writing content in jassm`};function l(e){let t={a:`a`,blockquote:`blockquote`,code:`code`,del:`del`,em:`em`,h1:`h1`,h2:`h2`,h3:`h3`,img:`img`,li:`li`,ol:`ol`,p:`p`,pre:`pre`,strong:`strong`,ul:`ul`,...e.components};return(0,o.jsxs)(o.Fragment,{children:[(0,o.jsx)(t.h1,{children:`Rules and regulations (and features) while writing mdx`}),`
+import{_ as e,g as t,u as n}from"./index-D-CmneHp.js";import{ComponentFromMdx as r,valueFromMDX as i}from"./export_sample-BlfDeM9C.js";var a=n(),o=e(t(),1);function s(e){let t=(0,a.c)(2),{text:n}=e,r;return t[0]===n?r=t[1]:(r=(0,o.jsxs)(`p`,{children:[`Loaded from sample: `,n]}),t[0]=n,t[1]=r),r}const c={author:`Divij Verma`,created_at:`26-02-2026`,modified_at:`03-03-2026`,tags:[`tutorial`,`style guide`,`mdx`],summary:`Style guide for writing content in jassm`};function l(e){let t={a:`a`,blockquote:`blockquote`,code:`code`,del:`del`,em:`em`,h1:`h1`,h2:`h2`,h3:`h3`,img:`img`,li:`li`,ol:`ol`,p:`p`,pre:`pre`,strong:`strong`,ul:`ul`,...e.components};return(0,o.jsxs)(o.Fragment,{children:[(0,o.jsx)(t.h1,{children:`Rules and regulations (and features) while writing mdx`}),`
 `,(0,o.jsxs)(t.blockquote,{children:[`
 `,(0,o.jsx)(t.p,{children:`MDX has (almost) all features of normal markdown`}),`
 `]}),`
@@ -17,16 +17,20 @@ import{_ as e,g as t,u as n}from"./index-BymzJ1bD.js";import{ComponentFromMdx as
 `,(0,o.jsxs)(t.li,{children:[(0,o.jsx)(t.strong,{children:`Bold`}),` `,(0,o.jsx)(t.code,{children:`**Bold**`})]}),`
 `,(0,o.jsxs)(t.li,{children:[(0,o.jsx)(t.em,{children:`italics`}),` `,(0,o.jsx)(t.code,{children:`_italics_`})]}),`
 `,(0,o.jsxs)(t.li,{children:[(0,o.jsx)(t.del,{children:`striked`}),` `,(0,o.jsx)(t.code,{children:`~striked~`})]}),`
-`,(0,o.jsxs)(t.li,{children:[(0,o.jsx)(t.code,{children:`inline code`})," `inline code`"]}),`
+`,(0,o.jsxs)(t.li,{children:[(0,o.jsx)(t.code,{children:`inline code`}),` `,(0,o.jsx)(t.code,{children:"`inline`"})]}),`
 `,(0,o.jsx)(t.li,{children:`Code blocks`}),`
 `]}),`
-`,(0,o.jsx)(t.pre,{children:(0,o.jsx)(t.code,{children:'```<language>\n<code>\n```\n\n\n```py\n<code>\nfor i in range(10):\n    print("hello")\n```\n'})}),`
+`,(0,o.jsx)(t.pre,{children:(0,o.jsx)(t.code,{children:"```<language>\n<code>\n```\n"})}),`
+`,(0,o.jsx)(t.pre,{children:(0,o.jsx)(t.code,{className:`language-py`,children:`for i in range(10):
+    print("hello")
+`})}),`
 `,(0,o.jsxs)(t.ol,{start:`6`,children:[`
 `,(0,o.jsx)(t.li,{children:`Tables - normally`}),`
 `]}),`
 `,(0,o.jsx)(t.h2,{children:`Embedding images`}),`
 `,(0,o.jsxs)(t.ul,{children:[`
 `,(0,o.jsxs)(t.li,{children:[`Save images in `,(0,o.jsx)(t.code,{children:`/public/images`}),` folder and reference them here using `,(0,o.jsx)(t.code,{children:`/images/<image name>`})]}),`
+`,(0,o.jsxs)(t.li,{children:[`Or alternatively use the `,(0,o.jsx)(t.code,{children:`<Image/>`}),` component (defined `,(0,o.jsx)(t.a,{href:`https://github.com/thesmallbits/thesmallbits.github.io/blob/main/src/components/MDXImage/Image.tsx`,children:`here`}),`)`]}),`
 `,(0,o.jsxs)(t.li,{children:[`DO NOT directly use the `,(0,o.jsx)(t.code,{children:`<img/>`}),` tag to embed images since they wont get styled automatically`]}),`
 `]}),`
 `,(0,o.jsx)(t.p,{children:(0,o.jsx)(t.code,{children:`![BFOP](/images/BFOP.png)`})}),`
