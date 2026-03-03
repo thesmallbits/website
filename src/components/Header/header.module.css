@@ -1,0 +1,26 @@
+@reference "tailwindcss";
+
+.headerMenu {
+    transform: scaleY(0);
+    transform-origin: top left;
+    opacity: 0;
+    transition:
+        transform 200ms ease-out,
+        opacity 200ms ease-out;
+
+    overflow: hidden;
+
+    /*slow transition looks shitty on big screens*/
+    @media (width >= var(--breakpoint-md)) {
+        & {
+            transition:
+                transform 100ms ease-out,
+                opacity 100ms ease-out;
+        }
+    }
+
+    &.open {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+}

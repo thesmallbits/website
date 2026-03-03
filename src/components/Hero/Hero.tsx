@@ -10,10 +10,6 @@ export default function Hero() {
                     // "flex flex-col justify-center items-center text-center",
                     "grid grid-rows-[1fr_auto] items-center align-middle",
                 )}
-                style={{
-                    background:
-                        "linear-gradient(180deg, #efebd4, #efebd4, #efebd4, #f0ecd5, #f2edd7, #f4efda, #f8f2dd, #faf4e0, #fcf5e2, #fdf6e3, #fdf6e3, #fdf6e3);",
-                }}
             >
                 <span className="grid grid-rows-[1fr_auto] pt-8 text-center">
                     <h1

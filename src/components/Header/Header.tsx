@@ -1,6 +1,6 @@
-import { cn, type PropsWithChildren, useVibrate } from "@d1vij/shit-i-always-use";
+import { cn, type PropsWithChildren, type ReactRef, useVibrate } from "@d1vij/shit-i-always-use";
 import { Link, type LinkProps, useLocation } from "@tanstack/react-router";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 import Menu from "./HeaderMenu";
 
@@ -33,8 +33,9 @@ function HeaderLink({ title, to }: HeaderLinkProps) {
 type HeaderButtonProps = {
     title: string;
     action: (e: React.MouseEvent<HTMLButtonElement>) => void;
+    ref?: ReactRef<HTMLButtonElement | null>;
 };
-function HeaderButton({ title, action }: HeaderButtonProps) {
+function HeaderButton({ title, action, ref }: HeaderButtonProps) {
     const vibrator = useVibrate();
     function handleClick(e: React.MouseEvent<HTMLButtonElement>) {
         vibrator(100);
@@ -42,7 +43,7 @@ function HeaderButton({ title, action }: HeaderButtonProps) {
     }
     return (
         <HeaderInteractable>
-            <button onClick={handleClick} type="button" className="cursor-pointer">
+            <button ref={ref} onClick={handleClick} type="button" className="cursor-pointer">
                 {title}
             </button>
         </HeaderInteractable>
@@ -50,15 +51,17 @@ function HeaderButton({ title, action }: HeaderButtonProps) {
 }
 
 import { HeaderMenuLists } from "@/content/HeaderMenuLists";
+import { MenuStateContext } from "./MenuStateContext";
 
 export default function Header() {
+    const menuButtonRef = useRef<HTMLButtonElement>(null);
     const [isOpen, setIsOpen] = useState(false);
     const { pathname } = useLocation();
 
     function toggleMenu() {
         setIsOpen((o) => !o);
     }
-    const root = pathname === "/";
+    const isRoot = pathname === "/";
 
     return (
         <header
@@ -67,18 +70,20 @@ export default function Header() {
                 "primary-border cool-background-shit shadow shadow-light-secondary",
                 "relative z-30 h-fit w-full border-0 border-t-0 border-b",
                 "grid",
-                root ? "grid-cols-2" : "grid-cols-[auto_1fr_auto]",
+                isRoot ? "grid-cols-2" : "grid-cols-[auto_1fr_auto]",
             )}
         >
-            {isOpen && <Menu lists={HeaderMenuLists} />}
-            <span className="m-2 ml-4 flex gap-2">
-                <HeaderButton title="Menu" action={toggleMenu} />
-            </span>
+            <MenuStateContext value={{ isOpen, setIsOpen }}>
+                <Menu lists={HeaderMenuLists} menuButtonRef={menuButtonRef} />
+                <span className="m-2 ml-4 flex gap-2">
+                    <HeaderButton title="Menu" ref={menuButtonRef} action={toggleMenu} />
+                </span>
+            </MenuStateContext>
             <h1
                 className={cn(
                     "mx-auto h-full w-fit place-self-center border-light-border border-x-2 bg-light-secondary px-3 font-semibold text-lg tracking-tighter md:text-4xl lg:text-5xl",
                     "grid place-items-center text-center",
-                    root && "hidden",
+                    isRoot && "hidden",
                     // "border-transparent bg-transparent text-transparent size-0",
                 )}
             >
