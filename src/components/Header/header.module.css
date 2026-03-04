@@ -46,10 +46,9 @@
         &:last-child {
             anchor-name: --last-elm;
             .thelittledash {
-                @apply rounded-bl-4xl ;
+                @apply rounded-bl-4xl;
             }
         }
-
     }
     .indexline {
         position: absolute;
@@ -57,7 +56,4 @@
         top: anchor(--list-title bottom);
         bottom: anchor(--last-elm center);
     }
-
-
-
 }

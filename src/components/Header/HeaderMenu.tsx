@@ -40,7 +40,6 @@ export default function Menu({ lists, menuButtonRef }: MenuProps) {
             }
             // we clicked outside of the header
             else if (!self.contains(e.target as Node)) {
-                console.log("true");
                 setIsOpen(false);
             }
         }
