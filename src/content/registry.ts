@@ -18,10 +18,17 @@ export const registry = new Registry({
         import: "meta",
     }),
     root: "/src/assets/mdx/blogs",
+    // biome-ignore lint/suspicious/noTsIgnore: Yeah ill fix
+    // @ts-ignore
     virtual: "",
 });
 
-console.log(registry);
+// NOTE: remove diff check once jassm gets stable
+const diffResults = registry.diffKeys();
+if (diffResults) {
+    throw diffResults.error;
+}
+
 export type RegistryType = typeof registry;
 /**
  * Schema for validating entries of registry
