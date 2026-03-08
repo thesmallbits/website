@@ -25,3 +25,5 @@ declare module "@tanstack/react-router" {
         router: typeof router;
     }
 }
+
+console.log("build hash", __BUILD_HASH__);

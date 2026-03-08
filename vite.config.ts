@@ -4,9 +4,12 @@ import react from "@vitejs/plugin-react";
 import { tanstackRouter } from "@tanstack/router-vite-plugin";
 import tailwindcss from "@tailwindcss/vite";
 import path from "path";
+import {execSync} from "child_process"
 
 import jassm from "@d1vij/jassm/plugin";
 import {visualizer} from "rollup-plugin-visualizer"
+
+const __BUILD_HASH__ = JSON.stringify(execSync("git rev-parse --short HEAD").toString().trim())
 
 // https://vite.dev/config/
 export default defineConfig(({mode}) => ({
@@ -16,6 +19,7 @@ export default defineConfig(({mode}) => ({
         allowedHosts: true
     },
     define: {
+        __BUILD_HASH__,
         "process.env.NODE_ENV":"'production'"
     },
     css: {
