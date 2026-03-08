@@ -19,9 +19,7 @@ export const registry = new Registry({
         import: "meta",
     }),
     root: "/src/assets/mdx/blogs",
-    // biome-ignore lint/suspicious/noTsIgnore: Yeah ill fix
-    // @ts-ignore
-    virtual: "",
+    virtual: "/",
 });
 
 // NOTE: remove diff check once jassm gets stable
@@ -34,10 +32,6 @@ export type RegistryType = typeof registry;
 /**
  * Schema for validating entries of registry
  */
-// FIXME: Add proper registry key validation.
-// Would be only possible when it gets fixed in jassm
-// it works but tab tak ke liye we lose typings in content 🤷‍♂
-// export const RegistryKeySchema = v.picklist(registry.keys);
-export const RegistryKeySchema = v.string();
+export const RegistryKeySchema = v.picklist(registry.keys);
 
 export default registry;

@@ -5,7 +5,7 @@
     "": {
       "name": "thesmallbits-website",
       "dependencies": {
-        "@d1vij/jassm": "^0.1.19-beta.1",
+        "@d1vij/jassm": "^0.1.19",
         "@d1vij/shit-i-always-use": "^0.1.10",
         "@tanstack/react-router": "^1.166.2",
         "@tsparticles/react": "^3.0.0",
@@ -103,7 +103,7 @@
 
     "@biomejs/cli-win32-x64": ["@biomejs/cli-win32-x64@2.4.6", "", { "os": "win32", "cpu": "x64" }, "sha512-7++XhnsPlr1HDbor5amovPjOH6vsrFOCdp93iKXhFn6bcMUI6soodj3WWKfgEO6JosKU1W5n3uky3WW9RlRjTg=="],
 
-    "@d1vij/jassm": ["@d1vij/jassm@0.1.19-beta.1", "", { "peerDependencies": { "@d1vij/shit-i-always-use": "^0.1.9", "@mdx-js/rollup": "^3.1.1", "react": "^19.2.4", "react-dom": "^19.2.4", "remark-gfm": "^4.0.1" } }, "sha512-vrKnonD35G4XowyMVM3PSnPugEmeK4iOClYUNO7wp13aIDGC9ask5OvTzLpypyRBzxvLxFKuunqik+0NTpdnwQ=="],
+    "@d1vij/jassm": ["@d1vij/jassm@0.1.19", "", { "peerDependencies": { "@d1vij/shit-i-always-use": "^0.1.9", "@mdx-js/rollup": "^3.1.1", "react": "^19.2.4", "react-dom": "^19.2.4", "remark-gfm": "^4.0.1" } }, "sha512-JkNgu9fva8vLxOPixqalOpQhv71SXcW8/AB38rxq7vPlrO8cp9SWHdGD1Pp6RSFvLz8Yutf9j577zaIv7lw/pw=="],
 
     "@d1vij/shit-i-always-use": ["@d1vij/shit-i-always-use@0.1.10", "", { "dependencies": { "clsx": "^2.1.1", "nanoid": "^5.1.6", "tailwind-merge": "^3.5.0" }, "peerDependencies": { "react": "^18.0.0 || ^19.0.0", "react-dom": "^18.0.0 || ^19.0.0", "typescript": ">=4.5.0" }, "optionalPeers": ["typescript"] }, "sha512-rQN2pUoX45QVq/qYWg9AAZH66sz+LSr0GSKxoZtybnzPJiSmK4VtfcIaYKadCKHcVll9RS799INAloCQ/4QE6g=="],
 

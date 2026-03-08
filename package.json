@@ -16,7 +16,7 @@
         "prepare": "husky"
     },
     "dependencies": {
-        "@d1vij/jassm": "^0.1.19-beta.1",
+        "@d1vij/jassm": "^0.1.19",
         "@d1vij/shit-i-always-use": "^0.1.10",
         "@tanstack/react-router": "^1.166.2",
         "@tsparticles/react": "^3.0.0",
