@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { lazy } from "react";
 import * as v from "valibot";
 import { RegistryKeySchema } from "@/content/registry";
-import { MetaSchema } from "@/schemas";
+import { MetadataSchema } from "@/schemas";
 
 const { registry } = await import("@/content/registry");
 console.log(registry.keys);
@@ -22,7 +22,7 @@ export const Route = createFileRoute("/blogs/$")({
     },
     loader({ params: { _splat } }) {
         const metadata = registry.getMetadata(_splat);
-        const results = v.safeParse(MetaSchema, metadata);
+        const results = v.safeParse(MetadataSchema, metadata);
 
         if (!results.success) {
             throw results;
