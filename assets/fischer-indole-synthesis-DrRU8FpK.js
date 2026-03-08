@@ -61,5 +61,3 @@ The hydrazone formation is followed by the indole formation and finally complete
 `,(0,e.jsx)(n.li,{children:`Gribble, G. W. J. Chem. Soc., Perkin trans 1 2000, 1045; Humphrey, G. R.; Kuethe, J. T. Chem.
 Rev. 2006, 106, 2875.`}),`
 `]})]})}function c(t={}){const{wrapper:n}=t.components||{};return n?(0,e.jsx)(n,{...t,children:(0,e.jsx)(r,{...t})}):r(t)}function a(t,n){throw new Error("Expected "+(n?"component":"object")+" `"+t+"` to be defined: you likely forgot to import, pass, or provide it.")}export{c as default};
-
-//# sourceMappingURL=fischer-indole-synthesis-DrRU8FpK.js.map

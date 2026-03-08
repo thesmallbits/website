@@ -59,5 +59,3 @@ Ibogamine reduce rate of self administration of cocaine and morphine in rats`})}
 `,(0,e.jsx)(n.li,{children:(0,e.jsx)(n.a,{href:"https://www.masterorganicchemistry.com/reaction-guide/beckmann-rearrangement/",children:"https://www.masterorganicchemistry.com/reaction-guide/beckmann-rearrangement/"})}),`
 `,(0,e.jsx)(n.li,{children:(0,e.jsx)(n.a,{href:"https://snyder-group.uchicago.edu/downloads/Lectures2020/Rearrangements.pdf",children:"https://snyder-group.uchicago.edu/downloads/Lectures2020/Rearrangements.pdf"})}),`
 `]})]})}function d(a={}){const{wrapper:n}=a.components||{};return n?(0,e.jsx)(n,{...a,children:(0,e.jsx)(r,{...a})}):r(a)}function o(a,n){throw new Error("Expected "+(n?"component":"object")+" `"+a+"` to be defined: you likely forgot to import, pass, or provide it.")}export{d as default,h as meta};
-
-//# sourceMappingURL=beckmann-rearrangement-DVU4gBVr.js.map

@@ -225,5 +225,3 @@ function Foo() {
 };
 `})}),`
 `,(0,n.jsx)(e.p,{children:"If the exported meta is not upto the schema, runtime error will be raised"})]})}function u(s={}){const{wrapper:e}=s.components||{};return e?(0,n.jsx)(e,{...s,children:(0,n.jsx)(i,{...s})}):i(s)}export{u as default};
-
-//# sourceMappingURL=style-guide-vdgwGuiE.js.map
