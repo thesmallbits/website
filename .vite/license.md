@@ -2,7 +2,7 @@
 
 The app bundles dependencies which contain the following licenses:
 
-## @d1vij/jassm - 0.1.19 (MIT)
+## @d1vij/jassm - 0.1.20 (MIT)
 
 MIT License
 
