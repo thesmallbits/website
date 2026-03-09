@@ -3,7 +3,6 @@ let hash = __BUILD_HASH__;
 // Use random UUID when in dev mode to ensure that caches are invalidated on each reload
 if (import.meta.hot) {
     hash = crypto.randomUUID();
-    console.log(hash);
 }
 
 /**

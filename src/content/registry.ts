@@ -1,5 +1,4 @@
 import { generateElementsFrom, Registry } from "@d1vij/jassm";
-// import { Registry } from "./R";
 import * as v from "valibot";
 import Image from "@/components/MDX";
 import { Anchor } from "@/components/MDX/Anchor";
@@ -19,7 +18,7 @@ export const registry = new Registry({
         import: "meta",
     }),
     root: "/src/assets/mdx/blogs",
-    virtual: "/",
+    virtual: "",
 });
 
 // NOTE: remove diff check once jassm gets stable
@@ -29,7 +28,6 @@ if (diffResults) {
 }
 
 export type RegistryType = typeof registry;
-console.log(registry.keys);
 /**
  * Schema for validating entries of registry
  */
