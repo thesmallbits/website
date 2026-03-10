@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { lazy } from "react";
 import * as v from "valibot";
 import { RegistryKeySchema } from "@/content/registry";
-import { MetadataSchema } from "@/schemas";
+import { RegistryMetadataSchema } from "@/schemas";
 
 const { registry } = await import("@/content/registry");
 const BlogSlug = lazy(() => import("@/components/BlogSlug"));
@@ -11,7 +11,6 @@ const BlogSlug = lazy(() => import("@/components/BlogSlug"));
  * Replacement when the splat is undefined, maybe useful on the error handling page
  */
 export const UNDEFINED_PATH = "87650307-114d-4600-b067-daac48fea4f0"; // no sane person will have a file named like this
-console.log(registry.keys);
 
 export const Route = createFileRoute("/blogs/$")({
     component: BlogSlug,
@@ -24,8 +23,7 @@ export const Route = createFileRoute("/blogs/$")({
     },
     loader({ params: { _splat } }) {
         const metadata = registry.getMetadata(_splat);
-        const results = v.safeParse(MetadataSchema, metadata);
-
+        const results = v.safeParse(RegistryMetadataSchema, metadata);
         if (!results.success) {
             throw results;
         }

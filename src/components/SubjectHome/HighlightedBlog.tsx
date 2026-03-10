@@ -1,23 +1,31 @@
 import { Activity, cn } from "@d1vij/shit-i-always-use";
 import { Link } from "@tanstack/react-router";
 import { Hourglass } from "lucide-react";
-import { type HotLink, UNDEFINED } from "@/schemas/SubjectBlogPageSchema";
+import { useMemo } from "react";
+import * as v from "valibot";
+import { type RegistryKey, registry } from "@/content/registry";
+import { RegistryMetadataSchema, UNDEFINED_READING_TIME } from "@/schemas";
 
-type HighlightedBlogProps = HotLink;
+type HighlightedBlogProps = {
+    splat: RegistryKey;
+};
 export function HighlightedBlog(props: HighlightedBlogProps) {
+    const meta = useMemo(() => {
+        return v.parse(RegistryMetadataSchema, registry.getMetadata(props.splat));
+    }, [props.splat]);
     return (
         <div
             className={cn(
                 "border border-light-border bg-light-secondary",
                 "p-2",
-                "grid grid-rows-[auto_1fr_auto]",
-                "shadow-light-tertiary transition-shadow-xs duration-400 ease-out hover:shadow-xs",
+                "row-span-3 grid grid-rows-subgrid",
+                // "transition-shadow-xs duration-400 ease-out hover:shadow-2xs",
             )}
         >
-            <h3 className="font-bold text-3xl text-light-text-secondary">{props.title}</h3>
-            <p className="p-2 text-light-text-tertiary text-sm md:text-base">{props.summary}</p>
-            <div className={cn("w-full border-light-border border-t pt-2", "flex gap-1")}>
-                <Activity show={props.reading_minutes !== UNDEFINED.READING_TIME}>
+            <h3 className="aspect-auto h-fit max-h-full font-bold text-3xl text-light-text-secondary">{meta.title}</h3>
+            <p className="p-2 text-light-text-tertiary text-sm md:text-base">{meta.summary}</p>
+            <div className={cn("", "w-full border-light-border border-t pt-2", "flex gap-1")}>
+                <Activity show={meta.reading_minutes !== UNDEFINED_READING_TIME}>
                     <div
                         className={cn(
                             "cool-something-button-like",
@@ -25,7 +33,7 @@ export function HighlightedBlog(props: HighlightedBlogProps) {
                         )}
                     >
                         <Hourglass className="size-4 stroke-light-text-secondary" />
-                        <p>{props.reading_minutes} mins</p>
+                        <p>{meta.reading_minutes} mins</p>
                     </div>
                 </Activity>
                 <Link

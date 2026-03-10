@@ -1,21 +1,9 @@
-// import type { Metadata, MetadataKey } from "@/schemas";
+import type { RegistryMetadata, RegistryMetadataKeys, RegistryMetadataKeysWithStringValues } from "@/schemas";
 
-// /**
-//  * const filer = new filterMetadata(metadata)
-//  * filter.on(author_name).equals(10)
-//  */
-
-// export class FilterMetadata<Metadatas extends Metadata[], Property extends keyof Metadatas[number]> {
-//     private metadatas: Metadatas;
-//     constructor(metadatas: Metadatas) {
-//         this.metadatas = metadatas;
-//     }
-
-//     public where(property: Property) {
-
-//     }
-// }
-
-// class F {
-
-// }
+export function filterMetadataBasedOnRegex<Based extends RegistryMetadataKeys>(
+    metadatas: RegistryMetadata[],
+    based: Based extends RegistryMetadataKeysWithStringValues ? Based : never,
+    regex: RegExp,
+): RegistryMetadata[] {
+    return metadatas.filter((m) => regex.test(m[based]));
+}

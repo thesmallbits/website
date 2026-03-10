@@ -4,8 +4,11 @@ import * as v from "valibot";
 
 const SubjectHome = lazy(() => import("@/components/SubjectHome"));
 
-import { subjectPageIndex } from "@/content/blogHomePages";
-import { ValidSubjectSchema } from "@/schemas";
+import registry from "@/content/registry";
+import { subjectPageIndex } from "@/content/subjectHomePages";
+import { getFromLocalStorage, groupMetadataAlphabetically } from "@/lib";
+import { filterArrayByRegex } from "@/lib/filterArray";
+import { type RegistryMetadata, ValidSubjectSchema } from "@/schemas";
 
 export const Route = createFileRoute("/$subject")({
     component: SubjectHome,
@@ -15,6 +18,31 @@ export const Route = createFileRoute("/$subject")({
         }),
     },
     loader({ params: { subject } }) {
-        return subjectPageIndex[subject];
+        const content = subjectPageIndex[subject];
+
+        const subjectSplats: string[] = JSON.parse(
+            getFromLocalStorage(content.title, () => {
+                const splats = registry.keys;
+                // all the splats which correspond to this particular subject
+                const subjectSplats = filterArrayByRegex(splats, content.regex);
+                return JSON.stringify(subjectSplats);
+            }),
+        );
+
+        const subjectMetadatas = (Object.values(registry.metadata) as RegistryMetadata[]).filter((m) =>
+            subjectSplats.includes(m.__splat),
+        );
+        const groups: ReturnType<typeof groupMetadataAlphabetically> = JSON.parse(
+            getFromLocalStorage(`${content.title}-groups`, () => {
+                const groups = groupMetadataAlphabetically(subjectMetadatas, "title");
+                return JSON.stringify(groups);
+            }),
+        );
+
+        return {
+            content: content,
+            blogs: subjectMetadatas,
+            groups: groups,
+        };
     },
 });

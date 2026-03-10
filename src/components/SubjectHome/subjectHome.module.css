@@ -1,5 +1,42 @@
+@reference "tailwindcss";
 .subjectTitle {
-    /*background-color: red;*/
-    -webkit-text-stroke: 3px var(--color-light-border);
+    --text-stroke: 1px;
+    -webkit-text-stroke: var(--text-stroke) var(--color-light-border);
     color: var(--color-light-secondary);
+}
+@media (width >= 40em) {
+    .subjectTitle {
+        --text-stroke: 3px;
+    }
+}
+
+.letterSection {
+    .letter {
+        anchor-name: --letter;
+        @apply pl-4;
+        border-color: var(--color-light-border);
+    }
+    .line {
+        @apply border-l-2 absolute;
+        border-color: var(--color-light-border);
+
+        top: anchor(--letter center);
+        left: anchor(--letter left);
+        bottom: anchor(--last-link center);
+    }
+    .list {
+        @apply relative;
+        &:last-child {
+            .thelittledash {
+                @apply rounded-bl-4xl;
+            }
+        }
+    }
+    .blogLink {
+        position: relative;
+        anchor-name: --link;
+        &:last-child {
+            anchor-name: --last-link;
+        }
+    }
 }

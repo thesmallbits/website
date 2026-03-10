@@ -7,6 +7,7 @@
     --color-light-border: #e0dcc7;
     --color-light-secondary: #efebd4; /* darker one */
     --color-light-primary: #fdf6e3; /*lighter one */
+    --color-light-tertiary: #dbd3a7;
 
     --color-light-shade-green: #38c470;
     --color-light-shade-blue: rgba(56, 148, 196, 1);
@@ -33,6 +34,11 @@
         );
         background-size: 32px 32px;
         background-color: var(--color-light-secondary);
+    }
+    .cool-something-button-like {
+        @apply p-1 rounded cursor-pointer hover:shadow-xs;
+        @apply transition-shadow duration-200 ease-out;
+        background-color: var(--color-light-tertiary);
     }
 }
 

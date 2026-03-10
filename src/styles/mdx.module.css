@@ -111,7 +111,7 @@
 
 .preformatted {
     @apply bg-gray-300;
-    @apply font-mono p-2 border border-gray-400 mb-2 w-full overflow-scroll;
+    @apply font-mono p-2 border border-gray-400 mb-2 w-full overflow-y-scroll;
     .code {
         @apply bg-inherit outline-none p-0 text-sm;
     }
@@ -242,4 +242,7 @@
             }
         }
     }
+}
+
+.separator {
 }

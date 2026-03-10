@@ -1,6 +1,12 @@
-export const meta = {
+import type { UserDefinedMetadata } from "@/schemas";
+
+export const meta: UserDefinedMetadata = {
     author: "Ayush Banerjee",
-    created_at: "04-03-2026",
-    modified_at: "04-03-2026",
+    title: "Beckmann Rearrangement Reaction",
+    created_at: new Date(2026, 3, 4),
+    modified_at: new Date(2026, 3, 4),
     tags: ["chemistry", "fischer indole synthesis", "organic"],
+    reading_minutes: 10,
+    summary:
+        "Esse ratione neque disputatione, quam ob rem dissentientium inter se reprehensiones non sunt vituperandae, maledicta, contumeliae, tum iracundiae, contentiones concertationesque in disputando pertinaces indignae philosophia mihi videri solent. Tum Torquatus: Prorsus, inquit.",
 };

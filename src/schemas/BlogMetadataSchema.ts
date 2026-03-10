@@ -1,14 +1,38 @@
 import * as v from "valibot";
+import { RegistryKeySchema } from "@/content/registry";
+import type { KeysWithValueAsType } from "@/types";
 
-const DateStringSchema = v.pipe(v.string(), v.regex(/^\d{2}-\d{2}-\d{4}$/));
+export const UNDEFINED_READING_TIME = -1;
+export const UNDEFINED_QUOTE = "03c4e6ab-9849-4a15-8c38-ab97c6af547d";
+export const UNDEFINED_QUOTE_AUTHOR = "894e9cab-0523-47b9-82c2-dcd300aa812c";
 
-export const MetadataSchema = v.object({
+/**
+ * Schema followed in blog's metadata
+ */
+export const UserDefinedMetadataSchema = v.object({
     author: v.string(),
-    created_at: DateStringSchema,
-    modified_at: DateStringSchema,
+    title: v.string(),
+    created_at: v.date(),
+    modified_at: v.date(),
     tags: v.array(v.string()),
     summary: v.optional(v.string(), ""),
+    reading_minutes: v.optional(v.number(), UNDEFINED_READING_TIME),
 });
 
-export type Metadata = v.InferInput<typeof MetadataSchema>;
-export type MetadataKey = keyof Metadata;
+export type UserDefinedMetadata = v.InferInput<typeof UserDefinedMetadataSchema>;
+export type UserDefinedMetadataKey = keyof UserDefinedMetadata;
+
+/**
+ * Updated schema with system added information in it
+ */
+export const RegistryMetadataSchema = v.object({
+    ...UserDefinedMetadataSchema.entries,
+    __splat: RegistryKeySchema,
+});
+
+export type RegistryMetadata = v.InferInput<typeof RegistryMetadataSchema>;
+export type RegistryMetadataKeys = keyof RegistryMetadata;
+/**
+ * Registry Metadata keys whose values are strings
+ */
+export type RegistryMetadataKeysWithStringValues = KeysWithValueAsType<RegistryMetadata, string>;

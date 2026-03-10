@@ -31,6 +31,7 @@ export type RegistryType = typeof registry;
 /**
  * Schema for validating entries of registry
  */
-export const RegistryKeySchema = v.pipe(v.picklist(registry.keys));
+export const RegistryKeySchema = v.picklist(registry.keys);
+export type RegistryKey = (typeof registry.keys)[number];
 
 export default registry;

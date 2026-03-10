@@ -14,10 +14,10 @@ export default function BlogSlug() {
             <section className={cn("primary-border", "grow bg-light-secondary p-4", "w-full text-center md:block")}>
                 <h1 className="">{metadata.author}</h1>
                 <h1 className="">
-                    Published: <br /> {metadata.created_at}
+                    Published: <br /> {metadata.created_at.toString()}
                 </h1>
                 <h1 className="">
-                    Last Modified: <br /> {metadata.modified_at}
+                    Last Modified: <br /> {metadata.modified_at.toString()}
                 </h1>
             </section>
             <div className={cn("p-2 font-serifed")}>

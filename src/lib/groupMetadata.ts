@@ -1,7 +1,7 @@
-import type { Metadata, MetadataKey } from "@/schemas";
-import type { Alphabets, CompareableType, KeysWithComparableValue, KeysWithValueAsType } from "@/types";
+import type { RegistryMetadata, RegistryMetadataKeys, RegistryMetadataKeysWithStringValues } from "@/schemas";
+import type { CompareableType, KeysWithComparableValue } from "@/types";
 
-export type GroupedMetadata<Key> = Map<Key, Metadata[]>;
+export type GroupedMetadata<Key> = Map<Key, RegistryMetadata[]>;
 
 /**
  * Groups metadata based on values of for a the given key
@@ -11,11 +11,11 @@ export type GroupedMetadata<Key> = Map<Key, Metadata[]>;
  * @returns
  *  GroupedMetadata with groups based on values of Metadata object with Based as key.
  */
-export function groupMetadataOnValues<Based extends MetadataKey>(
-    metadatas: Metadata[],
-    based: Based extends KeysWithComparableValue<Metadata> ? Based : never,
-): GroupedMetadata<Metadata[Based]> {
-    const groups = new Map<Metadata[Based], Metadata[]>();
+export function groupMetadataOnValues<Based extends keyof RegistryMetadata>(
+    metadatas: RegistryMetadata[],
+    based: Based extends KeysWithComparableValue<RegistryMetadataKeys> ? Based : never,
+): GroupedMetadata<RegistryMetadata[Based]> {
+    const groups = new Map<RegistryMetadata[Based], RegistryMetadata[]>();
 
     for (const metadata of metadatas) {
         const key = metadata[based];
@@ -37,21 +37,23 @@ export function groupMetadataOnValues<Based extends MetadataKey>(
  * @returns
  * Grouped metadata with map with typed keys of lowercase letters, uppercase letters, numbers and any other but untyped single letter character
  */
-export function groupAlphabetically<Based extends KeysWithValueAsType<Metadata, string>, Metadatas extends Metadata[]>(
+export function groupMetadataAlphabetically<Based extends RegistryMetadataKeys, Metadatas extends RegistryMetadata[]>(
     metadatas: Metadatas,
-    based: Based,
+    based: Based extends RegistryMetadataKeysWithStringValues ? Based : never,
     caseSensitive: boolean = true,
-): GroupedMetadata<Alphabets> {
-    const groups = new Map();
+) {
+    const groups: Record<string, RegistryMetadata[]> = {};
 
+    console.log("grouping");
     for (const metadata of metadatas) {
         const value = metadata[based];
         let letter = value.charAt(0);
+        console.log(letter);
+
         if (!caseSensitive) letter = letter.toLowerCase();
-
-        const arr = groups.getOrInsert(letter, []);
+        const arr = groups[letter] ?? [];
         arr.push(metadata);
+        groups[letter] = arr;
     }
-
     return groups;
 }

@@ -1,8 +1,17 @@
+/**
+ * NOTE:
+ * Maybe look into using IndexedDB instead of localStorage cuz localStorage has a hard cap of
+ * around 5MB per origin. While now it might not be a concern, if we store large blobs and alot of them
+ * it might raise issues
+ */
+
+import { nanoid } from "nanoid";
+
 let hash = __BUILD_HASH__;
 
 // Use random UUID when in dev mode to ensure that caches are invalidated on each reload
 if (import.meta.hot) {
-    hash = crypto.randomUUID();
+    hash = nanoid();
 }
 
 /**

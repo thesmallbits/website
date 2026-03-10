@@ -1,6 +1,4 @@
-import "@/lib/getFromLocalStorage";
 import "@/tailwind.css";
-import "@/index.css";
 
 import { createHashHistory, createRouter, RouterProvider } from "@tanstack/react-router";
 import { StrictMode } from "react";
