@@ -1,4 +1,4 @@
-import{n as s}from"./chunk-CyzFmspp.js";import{t as o}from"./jsx-runtime-CxZQJ11p.js";var e=s(o());function r(t){const n={em:"em",h1:"h1",h2:"h2",h3:"h3",h4:"h4",h5:"h5",hr:"hr",li:"li",ol:"ol",p:"p",...t.components},{Image:i}=n;return i||a("Image",!0),(0,e.jsxs)(e.Fragment,{children:[(0,e.jsx)(n.h1,{children:"The Fischer Indole Synthesis:"}),`
+import{n as s}from"./chunk-CyzFmspp.js";import{t as o}from"./jsx-runtime-xwFT6IXg.js";var e=s(o());function r(t){const n={em:"em",h1:"h1",h2:"h2",h3:"h3",h4:"h4",h5:"h5",hr:"hr",li:"li",ol:"ol",p:"p",...t.components},{Image:i}=n;return i||a("Image",!0),(0,e.jsxs)(e.Fragment,{children:[(0,e.jsx)(n.h1,{children:"The Fischer Indole Synthesis:"}),`
 `,(0,e.jsx)(n.h2,{children:"Introduction"}),`
 `,(0,e.jsx)(n.p,{children:`The Fischer Indole Synthesis by Emil Fischer stands out as one of the most useful reactions known to chemists. The indole ring (benzene ring fused to pyrrole ring)
 so formed is used extensively in medicinal chemistry like the synthesis of Indometacin, Triptan and Vincristine.`}),`
