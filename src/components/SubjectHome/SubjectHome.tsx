@@ -18,7 +18,8 @@ export default function Subject() {
             <h1
                 className={cn(
                     styles.subjectTitle,
-                    "text-[clamp(3rem,16vw,30rem)] text-shadow-2xs text-shadow-light-border tracking-wide md:text-shadow-sm",
+                    // "text-[clamp(3rem,16vw,30rem)] text-shadow-2xs text-shadow-light-border tracking-wide md:text-shadow-sm",
+                    "text-center text-[clamp(3rem,10vw,30rem)] text-shadow-2xs text-shadow-light-border tracking-wide md:text-shadow-sm",
                 )}
             >
                 {content.title}

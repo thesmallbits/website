@@ -40,7 +40,7 @@ export default function AllBlogs({ groups }: AllBlogsProps) {
     return (
         <section className="">
             <div className="flex flex-wrap gap-1">{letterLinks}</div>
-            <ul className="mt-3">{letterSections}</ul>
+            <ul className="mt-3 grid gap-2 md:grid-cols-2">{letterSections}</ul>
         </section>
     );
 }
@@ -102,7 +102,7 @@ function BlogLink({ splat }: { splat: string }) {
                 onClick={handleClick}
                 className={cn(
                     styles.blogLink,
-                    "block cursor-pointer border border-light-border p-1 px-2 text-start",
+                    "block cursor-pointer p-1 px-2 text-start outline outline-light-border transition-shadow duration-300 hover:shadow hover:outline-2 active:outline-2",
                     "bg-light-secondary",
                 )}
             >

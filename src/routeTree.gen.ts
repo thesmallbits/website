@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as JoinUsRouteImport } from './routes/join-us'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as SubjectRouteImport } from './routes/$subject'
 import { Route as IndexRouteImport } from './routes/index'
@@ -16,6 +17,11 @@ import { Route as RepositoryIndexRouteImport } from './routes/repository/index'
 import { Route as RepositoryRepositoryRouteImport } from './routes/repository/$repository'
 import { Route as BlogsSplatRouteImport } from './routes/blogs/$'
 
+const JoinUsRoute = JoinUsRouteImport.update({
+  id: '/join-us',
+  path: '/join-us',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -51,6 +57,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/$subject': typeof SubjectRoute
   '/about': typeof AboutRoute
+  '/join-us': typeof JoinUsRoute
   '/blogs/$': typeof BlogsSplatRoute
   '/repository/$repository': typeof RepositoryRepositoryRoute
   '/repository/': typeof RepositoryIndexRoute
@@ -59,6 +66,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$subject': typeof SubjectRoute
   '/about': typeof AboutRoute
+  '/join-us': typeof JoinUsRoute
   '/blogs/$': typeof BlogsSplatRoute
   '/repository/$repository': typeof RepositoryRepositoryRoute
   '/repository': typeof RepositoryIndexRoute
@@ -68,6 +76,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/$subject': typeof SubjectRoute
   '/about': typeof AboutRoute
+  '/join-us': typeof JoinUsRoute
   '/blogs/$': typeof BlogsSplatRoute
   '/repository/$repository': typeof RepositoryRepositoryRoute
   '/repository/': typeof RepositoryIndexRoute
@@ -78,6 +87,7 @@ export interface FileRouteTypes {
     | '/'
     | '/$subject'
     | '/about'
+    | '/join-us'
     | '/blogs/$'
     | '/repository/$repository'
     | '/repository/'
@@ -86,6 +96,7 @@ export interface FileRouteTypes {
     | '/'
     | '/$subject'
     | '/about'
+    | '/join-us'
     | '/blogs/$'
     | '/repository/$repository'
     | '/repository'
@@ -94,6 +105,7 @@ export interface FileRouteTypes {
     | '/'
     | '/$subject'
     | '/about'
+    | '/join-us'
     | '/blogs/$'
     | '/repository/$repository'
     | '/repository/'
@@ -103,6 +115,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SubjectRoute: typeof SubjectRoute
   AboutRoute: typeof AboutRoute
+  JoinUsRoute: typeof JoinUsRoute
   BlogsSplatRoute: typeof BlogsSplatRoute
   RepositoryRepositoryRoute: typeof RepositoryRepositoryRoute
   RepositoryIndexRoute: typeof RepositoryIndexRoute
@@ -110,6 +123,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/join-us': {
+      id: '/join-us'
+      path: '/join-us'
+      fullPath: '/join-us'
+      preLoaderRoute: typeof JoinUsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -159,6 +179,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SubjectRoute: SubjectRoute,
   AboutRoute: AboutRoute,
+  JoinUsRoute: JoinUsRoute,
   BlogsSplatRoute: BlogsSplatRoute,
   RepositoryRepositoryRoute: RepositoryRepositoryRoute,
   RepositoryIndexRoute: RepositoryIndexRoute,

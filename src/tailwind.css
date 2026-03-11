@@ -7,7 +7,7 @@
     --color-light-border: #e0dcc7;
     --color-light-secondary: #efebd4; /* darker one */
     --color-light-primary: #fdf6e3; /*lighter one */
-    --color-light-tertiary: #dbd3a7;
+    --color-light-tertiary: #dfd6a9;
 
     --color-light-shade-green: #38c470;
     --color-light-shade-blue: rgba(56, 148, 196, 1);
@@ -36,9 +36,23 @@
         background-color: var(--color-light-secondary);
     }
     .cool-something-button-like {
-        @apply p-1 rounded cursor-pointer hover:shadow-xs;
-        @apply transition-shadow duration-200 ease-out;
-        background-color: var(--color-light-tertiary);
+        @apply px-1 rounded cursor-pointer;
+        @apply transition-all duration-200 ease-out;
+        /*background-color: var(--color-light-tertiary);*/
+        @apply border-2;
+        border-color: var(--color-light-border);
+        &:hover,
+        &:active {
+            background-image: repeating-linear-gradient(
+                -45deg,
+                var(--color-light-border) 0,
+                var(--color-light-border) 2px,
+                transparent 0,
+                transparent 50%
+            );
+            background-size: 16px 16px;
+            background-color: var(--color-light-secondary);
+        }
     }
 }
 
