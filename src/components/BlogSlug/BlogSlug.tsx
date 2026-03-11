@@ -55,7 +55,8 @@ export default function BlogSlug() {
                 <div>{tagElms}</div>
                 <Separator />
             </section>
-            <div className={cn("overflow-scroll p-2 font-serifed")}>
+            {/*<Suspense fallback={BlogFallback}>*/}
+            <div className={cn("overflow-x-hidden overflow-y-scroll p-2 font-serifed", "relative")}>
                 <section
                     className={cn(styles.mdxContainer, "grid w-full grid-cols-1 p-2 md:w-[70%] lg:pt-10 lg:pl-30")}
                     lang="en"
@@ -64,10 +65,19 @@ export default function BlogSlug() {
                         elements={Elements}
                         styles={stylemap}
                         source={component}
-                        fallback={<div>Loading</div>}
+                        fallback={<BlogFallback />}
                     />
                 </section>
             </div>
+            {/*</Suspense>*/}
+        </div>
+    );
+}
+
+function BlogFallback() {
+    return (
+        <div className="place-center absolute inset-0 grid items-center font-semibold text-4xl decoration-0!">
+            <p className="origin-center animate-spin text-center">↻</p>
         </div>
     );
 }

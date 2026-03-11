@@ -1,10 +1,8 @@
 import { cn } from "@d1vij/shit-i-always-use";
 import { createRootRoute, HeadContent, Outlet } from "@tanstack/react-router";
-import { lazy } from "react";
 import ConsoleEgg from "@/components/ConsoleEgg";
-
-const Header = lazy(() => import("@/components/Header/Header"));
-const Footer = lazy(() => import("@/components/Footer"));
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 
 export const Route = createRootRoute({
     component: RootComponent,

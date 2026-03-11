@@ -1,11 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { lazy } from "react";
 import * as v from "valibot";
 import { RegistryKeySchema } from "@/content/registry";
 import { RegistryMetadataSchema } from "@/schemas";
 
 const { registry } = await import("@/content/registry");
-const BlogSlug = lazy(() => import("@/components/BlogSlug"));
+
+// lazy loading caused the entire page to appear empty while the component was loading
+// so we instead wrap the MDX loading in Suspense for lazy loadeding blog itself
+import BlogSlug from "@/components/BlogSlug";
 
 /**
  * Replacement when the splat is undefined, maybe useful on the error handling page

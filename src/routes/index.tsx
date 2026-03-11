@@ -1,6 +1,5 @@
 import { cn } from "@d1vij/shit-i-always-use";
 import { createFileRoute } from "@tanstack/react-router";
-import { lazy } from "react";
 import styles from "./index.module.css";
 
 export const Route = createFileRoute("/")({
@@ -10,7 +9,7 @@ export const Route = createFileRoute("/")({
     }),
 });
 
-const Hero = lazy(() => import("@/components/Hero"));
+import Hero from "@/components/Hero";
 // const _HomeCards = lazy(() => import("@/components/HomeCards"));
 
 export default function RouteComponent() {
